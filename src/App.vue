@@ -1,26 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="chat-body">
+    <div class="chat-body-char">
+      <div class="q-pa-md row justify-center">
+        <div style="width: 100%; max-width: 400px">
+          <q-chat-message
+            name="me"
+            avatar="https://cdn.quasar.dev/img/avatar4.jpg"
+            :text="['hey, how are you?']"
+            sent
+            stamp="7 minutes ago"
+          />
+          <q-chat-message
+            name="Jane"
+            avatar="https://cdn.quasar.dev/img/avatar3.jpg"
+            :text="[`doing fine, how r you?`]"
+            stamp="4 minutes ago"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
 <style>
+@import './assets/css/style.css';
+@import './assets/css/reset.css';
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>

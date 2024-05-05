@@ -1,0 +1,24 @@
+.chat-body {
+    width: 100%;
+    max-width: 770px;
+    background-color: #625772;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1vw;
+    margin: 14px 0;
+    border-radius: 10px;
+
+    &-char {
+        width: 100%;
+        height: 250px;
+        margin: 14px 0;
+        background-color: #f9f9f9;
+        background-repeat: no-repeat;
+        background-position: 50% 10%;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        color: #625772;
+    }
+}
