@@ -20,4 +20,29 @@
   justify-content: center;
   flex-direction: column;
   color: #625772;
+}
+.chat-body-chatting {
+  min-height: 100px;
+  height: 400px;
+  overflow-y: scroll;
+}
+.chat-body-input {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 14px;
+}
+.chat-body-input-usr-message {
+  width: calc(100% - 70px);
+  border-radius: 10px;
+  border: none;
+  padding: 0 14px;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0 14px;
+  color: #4a4a4a;
+  background-color: #f9f9f9;
+}
+
+.q-field--filled .q-field__control {
+  background: none !important;
 }/*# sourceMappingURL=style.css.map */
