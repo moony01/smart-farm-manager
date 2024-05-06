@@ -12,6 +12,8 @@
   width: 100%;
   height: 250px;
   margin: 14px 0;
+  background-image: url(../img/smart-farm-manager.png);
+  background-size: contain;
   background-color: #f9f9f9;
   background-repeat: no-repeat;
   background-position: 50% 10%;
