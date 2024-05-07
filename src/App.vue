@@ -1,6 +1,8 @@
 <template>
   <MngHeader></MngHeader>
-  <MngContents></MngContents>
+  <div class="content-wrapper">
+    <MngContents></MngContents>
+  </div>
 </template>
 
 <script>

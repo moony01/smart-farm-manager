@@ -1,3 +1,25 @@
+@charset "UTF-8";
+.content {
+  background-color: #f6f6f6;
+}
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 66px;
+}
+
+.chat {
+  /* body를 감싸고 있는 객체 */
+  /* body */
+}
+.chat-content {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .chat-body {
   width: 100%;
   max-width: 770px;
