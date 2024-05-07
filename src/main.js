@@ -1,13 +1,15 @@
-import { createApp } from 'vue'
 import App from './App.vue'
+import { createApp } from 'vue'
 import { Quasar } from 'quasar'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons'; // 예시로 solid 아이콘을 가져옴
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import 'quasar/dist/quasar.css' // Import Quasar css
+// import '@quasar/extras/material-icons/material-icons.css' // Import icon libraries
 
-// Import icon libraries
-import '@quasar/extras/material-icons/material-icons.css'
+library.add(fas); // Font Awesome 아이콘 라이브러리에 아이콘 추가
 
-// Import Quasar css
-import 'quasar/dist/quasar.css'
-
-createApp(App).use(Quasar, {
-    plugins: {}, // import Quasar plugins and add here
-}).mount('#app')
+const app = createApp(App)
+app.component('font-awesome-icon', FontAwesomeIcon); // FontAwesomeIcon 컴포넌트를 글로벌 컴포넌트로 등록
+app.use(Quasar)
+app.mount('#app')

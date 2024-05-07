@@ -1,19 +1,17 @@
 <template>
-  <MngHeader></MngHeader>
-  <div class="content-wrapper">
-    <MngContents></MngContents>
-  </div>
+  <MngHeader />
+  <MngBody />
 </template>
 
 <script>
 import MngHeader from "./components/MngHeader.vue";
-import MngContents from "./components/MngContents.vue";
+import MngBody from "./components/MngBody.vue";
 
 export default {
   name: 'App',
   components: {
     MngHeader,
-    MngContents,
+    MngBody,
   }
 }
 </script>

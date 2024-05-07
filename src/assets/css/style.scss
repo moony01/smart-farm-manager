@@ -1,78 +1,84 @@
 .content {
-    background-color: #f6f6f6;
+  background-color: #f6f6f6;
 
-    &-wrapper{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 66px;
-    }
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 66px;
+  }
 }
 .chat {
-    /* body를 감싸고 있는 객체 */
-    &-content{
-        width: 90vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+  /* body를 감싸고 있는 객체 */
+  &-content {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* body */
+  &-body {
+    width: 100%;
+    max-width: 770px;
+    background-color: #625772;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1vw;
+    margin: 14px 0;
+    border-radius: 10px;
+
+    &-char {
+      width: 100%;
+      height: 250px;
+      margin: 14px 0;
+      background-image: url(../img/smart-farm-manager.png);
+      background-size: contain;
+      background-color: #f9f9f9;
+      background-repeat: no-repeat;
+      background-position: 50% 10%;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      color: #625772;
     }
 
-    /* body */
-    &-body {
-        width: 100%;
-        max-width: 770px;
-        background-color: #625772;
-        display: flex;
-        flex-direction: column;
-        padding: 0 1vw;
-        margin: 14px 0;
+    &-chatting {
+      min-height: 100px;
+      height: 400px;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 8px; /* 원하는 스크롤 바 너비로 수정 */
+
+        &-thumb {
+          background-color: #888; /* 원하는 스크롤 바 색상으로 수정 */
+          border-radius: 4px; /* 원하는 스크롤 바 둥글기 값을 수정 */
+          &:hover {
+            background-color: #555; /* 원하는 스크롤 바 호버 시 색상으로 수정 */
+          }
+        }
+      }
+    }
+
+    &-input {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 14px;
+
+      &-usr-message {
+        width: calc(100% - 70px);
         border-radius: 10px;
-    
-        &-char {
-            width: 100%;
-            height: 250px;
-            margin: 14px 0;
-            background-image: url(../img/smart-farm-manager.png);
-            background-size: contain;
-            background-color: #f9f9f9;
-            background-repeat: no-repeat;
-            background-position: 50% 10%;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            color: #625772;
-        }
-    
-        &-chatting {
-            min-height: 100px;
-            height: 400px;
-            overflow-y: scroll;
-        }
-    
-        &-input {
-            display: flex;
-            justify-content: flex-start;
-            margin-bottom: 14px;
-    
-            &-usr-message{
-                width: calc(100% - 70px);
-                border-radius: 10px;
-                border: none;
-                padding: 0 14px;
-                box-sizing: border-box;
-                outline: none;
-                margin: 0 14px;
-                color: #4a4a4a;
-                background-color: #f9f9f9;
-            }
-        }
+        border: none;
+        padding: 0 14px;
+        box-sizing: border-box;
+        outline: none;
+        margin: 0 14px;
+        color: #4a4a4a;
+        background-color: #f9f9f9;
+      }
     }
-}
-
-
-
-.q-field--filled .q-field__control {
-    background: none !important;
+  }
 }

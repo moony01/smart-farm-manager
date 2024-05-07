@@ -10,6 +10,9 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/vue-fontawesome": "^3.0.6",
     "@quasar/extras": "^1.16.11",
     "core-js": "^3.8.3",
     "quasar": "^2.15.4",

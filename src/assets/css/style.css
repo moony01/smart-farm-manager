@@ -50,6 +50,16 @@
   height: 400px;
   overflow-y: scroll;
 }
+.chat-body-chatting::-webkit-scrollbar {
+  width: 8px; /* 원하는 스크롤 바 너비로 수정 */
+}
+.chat-body-chatting::-webkit-scrollbar-thumb {
+  background-color: #888; /* 원하는 스크롤 바 색상으로 수정 */
+  border-radius: 4px; /* 원하는 스크롤 바 둥글기 값을 수정 */
+}
+.chat-body-chatting::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* 원하는 스크롤 바 호버 시 색상으로 수정 */
+}
 .chat-body-input {
   display: flex;
   justify-content: flex-start;
@@ -65,8 +75,4 @@
   margin: 0 14px;
   color: #4a4a4a;
   background-color: #f9f9f9;
-}
-
-.q-field--filled .q-field__control {
-  background: none !important;
 }/*# sourceMappingURL=style.css.map */
