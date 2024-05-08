@@ -61,6 +61,11 @@
           }
         }
       }
+
+      & > * {
+        display: flex;
+        margin-bottom: 14px;
+      }
     }
 
     &-input {

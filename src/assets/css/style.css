@@ -60,6 +60,10 @@
 .chat-body-chatting::-webkit-scrollbar-thumb:hover {
   background-color: #555; /* 원하는 스크롤 바 호버 시 색상으로 수정 */
 }
+.chat-body-chatting > * {
+  display: flex;
+  margin-bottom: 14px;
+}
 .chat-body-input {
   display: flex;
   justify-content: flex-start;

@@ -9,7 +9,7 @@
             <img src="../assets/img/face-manager.png" class="ico-img">
           </figure>
           <p class="chat-body-chatting-ai-last-msg">
-            <font-awesome-icon icon="fa-solid fa-spinner" spin-pulse />
+            <font-awesome-icon :icon="['fas', 'paper-plane']" />
           </p>
         </div>
       </div>
@@ -37,7 +37,24 @@ export default {
     },
     methods: {
       displayBotLoading: function() {
+        // const chatContainer = document.getElementById("chatContainer");
+        // const messageContent = document.createElement("div");
+        // messageContent.classList.add("chat-body-chatting-cont", "chat-body-chatting-ai");
 
+        // const messageElement = document.createElement("p");
+        // messageElement.classList.add("chat-body-chatting-ai-last-msg");
+        // messageElement.innerHTML = `<font-awesome-icon :icon="['fas', 'paper-plane']" />`
+
+        // const imgElement = document.createElement("img");
+        // imgElement.classList.add("ico-img");
+        // imgElement.src = `../assets/img/face-manager.png`
+
+        // const figureElement = document.createElement("figure");
+        // figureElement.appendChild(imgElement);
+
+        // messageContent.appendChild(figureElement);
+        // messageContent.appendChild(messageElement);
+        // chatContainer.appendChild(messageContent);
       },
       sendMessage: function() {
         console.log(this.newUserMessage);
@@ -50,54 +67,6 @@ export default {
 <style lang="scss" scoped>
   .chat-body-chatting {
 
-    &-ai {
-      justify-content: flex-start;
-
-      & p {
-        background-color: #f9f9f9;
-
-        & a {
-          color: #0508a5;
-          font-family: 'NanumBarunGothicBold';
-          font-size: 1em;
-          text-decoration: underline;
-          margin-left: 14px;
-          cursor: pointer;
-        }
-      }
-    }
-
-    &-usr {
-      justify-content: flex-end;
-
-      & p {
-        background-color: #fefaec;
-      }
-    }
-
-    &-cont > * {
-      border-radius: 10px;
-    }
-
-    & figure {
-      background-color: #f9f9f9;
-      margin-right: 14px;
-      min-width: 50px;
-      height: 50px;
-      overflow: hidden;
-    }
-
-    & p {
-      padding: 10px;
-      height: 100%;
-      line-height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      max-width: 80%;
-      min-height: 30px;
-      min-width: 30px;
-      word-break: break-all;
-    }
+    
   }
 </style>
