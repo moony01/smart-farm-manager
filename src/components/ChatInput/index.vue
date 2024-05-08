@@ -4,7 +4,7 @@
       id="messageInput"
       class="send-area-input"
       type="text"
-      placeholder="메세지를 입력하세요."
+      :placeholder='placeholderText'
     />
     <button id="send" class="send-area-btn">
       <font-awesome-icon :icon="['fas', 'paper-plane']" />
@@ -16,6 +16,11 @@
 <script>
 export default {
   name: "ChatInput",
+  computed: {
+    placeholderText() {
+      return this.$store.state.placeholderText;
+    }
+  }
 }
 </script>
 
