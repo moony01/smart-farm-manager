@@ -5,7 +5,7 @@
         <div class="chat-body-char"></div>
         <div id="chatContainer" class="chat-body-chatting">
           <div 
-            v-for="(message, index) in messages"
+            v-for="(message, index) in botMessages"
             :key="index"
             class="chat-body-chatting-cont chat-body-chatting-ai"
           >
@@ -18,7 +18,7 @@
             </p>
           </div>
         </div>
-        <ChatInput @message-sent="displayUserMessage" />
+        <ChatInput @message-sent="displayUsrMessage" />
       </div>
     </div>
   </div>
@@ -32,7 +32,8 @@ export default {
   },
   data: function () {
     return {
-      messages: [],
+      botMessages: [],
+      usrMessages: [],
     };
   },
   mounted() {
@@ -41,17 +42,17 @@ export default {
   methods: {
     botFirstMessageProcessing(message) {
       const newMessage = { text: '', loading: false };
-      this.messages.push(newMessage);
+      this.botMessages.push(newMessage);
 
-      const messageIndex = this.messages.length - 1;
+      const messageIndex = this.botMessages.length - 1;
       let charIndex = 0;
 
       const typeChar = () => {
         if (charIndex < message.length) {
-          newMessage.text = this.messages[0].text
+          newMessage.text = this.botMessages[0].text
           const updatedText = newMessage.text + message[charIndex];
-          this.messages[messageIndex] = { ...newMessage, text: updatedText };
-          this.messages = [...this.messages]; // 배열 전체를 복사하여 갱신
+          this.botMessages[messageIndex] = { ...newMessage, text: updatedText };
+          this.botMessages = [...this.botMessages]; // 배열 전체를 복사하여 갱신
           charIndex++;
           setTimeout(() => {  // 200ms 후에 다음 문자 추가
             this.$nextTick(() => {
@@ -63,9 +64,9 @@ export default {
 
       requestAnimationFrame(typeChar);
     },
-    displayUserMessage(message) {
+    displayUsrMessage(message) {
       const newMessage = { text: message, loading: false };
-      this.messages.push(newMessage);
+      this.usrMessages.push(newMessage);
     }
   },
 };
