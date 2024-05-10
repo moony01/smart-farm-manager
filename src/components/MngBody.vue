@@ -13,13 +13,12 @@
               <img src="../assets/img/face-manager.png" class="ico-img" />
             </figure>
             <p class="chat-body-chatting-ai-last-msg">
-              <!-- <font-awesome-icon icon="fa-solid fa-spinner" spin-pulse /> -->
               <font-awesome-icon v-if="message.loading" :icon="['fas', 'spinner']" spin-pulse />
               {{ message.text }}
             </p>
           </div>
         </div>
-        <ChatInput />
+        <ChatInput @message-sent="displayUserMessage" />
       </div>
     </div>
   </div>
@@ -37,28 +36,15 @@ export default {
     };
   },
   mounted() {
-    this.addMessageWithTypingEffect("안녕하세요, 여기는 스마트팜 관리자입니다. 도움이 필요하신가요?");
-
-    // 초기 로딩 메시지 추가
-    // this.messages.push({
-    //   text: '',
-    //   loading: true
-    // });
-
-    // 3초 후에 실제 메시지로 교체
-    // setTimeout(() => {
-    //   this.messages[0] = {
-    //     text: 'Hello, how can I help you today?',
-    //     loading: false
-    //   };
-    // }, 2000)
+    this.botFirstMessageProcessing("안녕하세요, 여기는 스마트팜 관리자입니다. 도움이 필요하신가요?");
   },
   methods: {
-    addMessageWithTypingEffect(message) {
+    botFirstMessageProcessing(message) {
       const newMessage = { text: '', loading: false };
       this.messages.push(newMessage);
-      let charIndex = 0;
+
       const messageIndex = this.messages.length - 1;
+      let charIndex = 0;
 
       const typeChar = () => {
         if (charIndex < message.length) {
@@ -67,9 +53,6 @@ export default {
           this.messages[messageIndex] = { ...newMessage, text: updatedText };
           this.messages = [...this.messages]; // 배열 전체를 복사하여 갱신
           charIndex++;
-          // requestAnimationFrame(() => {
-          //   this.$nextTick(typeChar);
-          // });
           setTimeout(() => {  // 200ms 후에 다음 문자 추가
             this.$nextTick(() => {
               requestAnimationFrame(typeChar);
@@ -79,13 +62,11 @@ export default {
       };
 
       requestAnimationFrame(typeChar);
+    },
+    displayUserMessage(message) {
+      const newMessage = { text: message, loading: false };
+      this.messages.push(newMessage);
     }
-
-    // 메시지 발송 클릭
-    // sendMessage: function () {
-    //   console.log(this.newUserMessage);
-    //   // 메시지를 보내는 로직
-    // },
   },
 };
 </script>

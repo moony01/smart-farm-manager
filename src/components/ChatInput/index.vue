@@ -5,21 +5,34 @@
       class="send-area-input"
       type="text"
       :placeholder='placeholderText'
+      v-model="newUserMessage"
+      v-on:keyup.enter="sendMessage"
     />
-    <button id="send" class="send-area-btn">
+    <button id="send" class="send-area-btn" @click="sendMessage">
       <font-awesome-icon :icon="['fas', 'paper-plane']" />
     </button>
   </div>
-  
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: "ChatInput",
-  computed: {
-    placeholderText() {
-      return this.$store.state.placeholderText;
+  name: 'ChatInput',
+  data() {
+    return {
+      newUserMessage: '', // 메시지 입력 데이터 초기화
     }
+  },
+  computed: {
+    ...mapState(['placeholderText'])
+  },
+  methods: {
+    // 메시지 발송 클릭
+    sendMessage: function () {
+      console.log(this.newUserMessage) // 콘솔에 메시지 로그
+      this.$emit('message-sent', this.newUserMessage); // 이벤트 방출
+      this.newUserMessage = ''; // 입력 필드 초기화
+    },
   }
 }
 </script>
