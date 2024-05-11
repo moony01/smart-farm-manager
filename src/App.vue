@@ -5,7 +5,7 @@
 
 <script>
 import MngHeader from "./components/MngHeader.vue";
-import MngBody from "./components/MngBody.vue";
+import MngBody from "./components/MngBody";
 
 export default {
   name: 'App',

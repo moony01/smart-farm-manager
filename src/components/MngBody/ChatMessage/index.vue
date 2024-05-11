@@ -1,40 +1,51 @@
 <template>
-  <div class="content-wrapper">
-    <div id="contChat" class="chat-content">
-      <div class="chat-body">
-        <div class="chat-body-char"></div>
-        <div id="chatContainer" class="chat-body-chatting">
-          <div 
-            v-for="(message, index) in botMessages"
-            :key="index"
-            class="chat-body-chatting-cont chat-body-chatting-ai"
-          >
-            <figure>
-              <img src="../assets/img/face-manager.png" class="ico-img" />
-            </figure>
-            <p class="chat-body-chatting-ai-last-msg">
-              <font-awesome-icon v-if="message.loading" :icon="['fas', 'spinner']" spin-pulse />
-              {{ message.text }}
-            </p>
-          </div>
-        </div>
-        <ChatInput @message-sent="displayUsrMessage" />
-      </div>
+  <div id="chatContainer" class="chat-body-chatting">
+    <div
+      v-for="(message, index) in combinedMessages"
+      :key="index"
+      :class="{
+        'chat-body-chatting-cont': true,
+        'chat-body-chatting-ai': message.type === 'bot',
+        'chat-body-chatting-usr': message.type === 'usr',
+      }"
+    >
+      <figure v-if="message.type === 'bot'">
+        <img src="@/assets/img/face-manager.png" class="ico-img" />
+      </figure>
+      <p class="chat-body-chatting-ai-last-msg">
+        <font-awesome-icon
+          v-if="message.loading"
+          :icon="['fas', 'spinner']"
+          spin-pulse
+        />
+        {{ message.text }}
+      </p>
     </div>
   </div>
 </template>
 
 <script>
-import ChatInput from "./ChatInput";
 export default {
-  components: {
-    ChatInput,
-  },
-  data: function () {
+  name: "ChatInput",
+
+  data() {
     return {
-      botMessages: [],
-      usrMessages: [],
+      botMessages: [], // 봇이 보낸 메시지들을 저장하는 배열
+      usrMessages: [], // 사용자가 입력한 메시지들을 저장하는 배열
     };
+  },
+  computed: {
+    combinedMessages() {
+      let combined = [];
+      const maxLength = Math.max(this.botMessages.length, this.usrMessages.length);
+      for (let i = 0; i < maxLength; i++) {
+        if(this.botMessages[i])
+          combined.push({ ...this.botMessages[i], type: 'bot' });
+        if(this.usrMessages[i])
+          combined.push({ ...this.usrMessages[i], type: 'usr' });
+      }
+      return combined;
+    }
   },
   mounted() {
     this.botFirstMessageProcessing("안녕하세요, 여기는 스마트팜 관리자입니다. 도움이 필요하신가요?");
