@@ -3,8 +3,8 @@
     <div id="contChat" class="chat-content">
       <div class="chat-body">
         <ChatCharacter />
-        <ChatMessage />
-        <ChatInput />
+        <ChatMessage :messages="messages" />
+        <ChatInput @message-sent="handleMessage" />
       </div>
     </div>
   </div>
@@ -22,5 +22,15 @@ export default {
     ChatInput,
     ChatMessage
   },
+  data() {
+    return {
+      messages: []
+    };
+  },
+  methods: {
+    handleMessage(newMessage) {
+      this.messages.push({ text: newMessage, type: 'usr' })
+    }
+  }
 };
 </script>
