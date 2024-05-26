@@ -9,8 +9,8 @@
         v-for="item in menuInfo"
         :key="item.page"
         @click="fnMovePage(item.page)"
-        >{{ item.name }}</a
-      >
+        >{{ item.name }}
+      </a>
     </nav>
   </header>
 </template>

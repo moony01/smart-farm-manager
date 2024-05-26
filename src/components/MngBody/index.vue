@@ -24,12 +24,13 @@ export default {
   },
   data() {
     return {
-      messages: []
+      botMessages: [],
+      usrMessages: [],
     };
   },
   methods: {
     handleMessage(newMessage) {
-      this.messages.push({ text: newMessage, type: 'usr' })
+      this.usrMessages.push({ text: newMessage, type: 'usr' })
     }
   }
 };
